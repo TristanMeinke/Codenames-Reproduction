@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Codenames</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/scripts.js"></script>
+  </head>
+  <body>
+
+  <div class="">
+    <div class="row" id="rulesPopup">
+        <div class="col-sm-4" id="">
+          <h1 class="text-uppercase">Rules of the Game:</h1>
+        </div>
+        <div class="col-sm-7" id="">
+          <ol class="listrules">
+            <li>TEAMS: Each team is comprised of agents and spymasters.  There is one spymaster for each of two teams.</li>
+            <li>BOARD: The board is made up of 25 words which are randomly selected.  Each word is associated with a color.  Blue words represent agents of the blue team, while red words are red agents. Their are additionally seven bystanders on the board, along with the dreaded assassin.  Finally, the double agent represents the extra red or blue word given to the starting team.</li>
+            <li>The spymaster issues clues to their team, in the hopes that they will guess the related codenames.</li>
+            <li>CLUES: Clues are made up of a single word (related to those the spymaster wants their team to guess), and an integer indicating how many cards the team is meant to guess.</li>
+            <li>GUESSING: Guesses are made by clicking on the word.  Once a guess is made, it cannot be taken back, as the color of the card is immediately revealed. If players guess a card other than their own color, their turn ends and they cannot guess anymore cards.  When players have guessed the number of cards their spymaster intended, they are afforded an extra guess, in case they have ideas from previous clues.</li><br>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Codenames</h1>
+    </div>
+  </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="button" class="btn btn-lg btn-gray btn-block" id="start">Start Game</button>
+        </div>
+      </div>
+      <br>
+      <div class="row" id="button-row">
+
+        <div class="col-xs-12 button-row">
+          <div class="bttn">
+            <button type="button" class="btn btn-gray" id="reset">Reset Game</button>
+
+            <button type="button" id="rules-display" class="btn btn-gray">Display Rules</button>
+
+            <button type="button" class="btn btn-gray" id="spyboardbutton">Toggle Color Key</button>
+
+            <button type="button" class="btn btn-gray" id="endturn">End Turn</button>
+          </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id = "turnIdentifier">
+    </div>
+
+    <div class="container" id="gameboard">
+      <div class="row board-row">
+        <div class="col-sm-2 text-center grid" id="box1">
+          <!-- Card Object Here! -->
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box2">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box3">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box4">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box5">
+          <h1></h1>
+        </div>
+      </div>
+
+      <div class="row board-row">
+        <div class="col-sm-2 text-center grid" id="box6">
+          <!-- Card Object Here! -->
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box7">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box8">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box9">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box10">
+          <h1></h1>
+        </div>
+      </div>
+
+      <div class="row board-row">
+        <div class="col-sm-2 text-center grid" id="box11">
+          <!-- Card Object Here! -->
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box12">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box13">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box14">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box15">
+          <h1></h1>
+        </div>
+      </div>
+
+      <div class="row board-row">
+        <div class="col-sm-2 text-center grid" id="box16">
+          <!-- Card Object Here! -->
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box17">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box18">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box19">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box20">
+          <h1></h1>
+        </div>
+      </div>
+
+      <div class="row board-row">
+        <div class="col-sm-2 text-center grid" id="box21">
+          <!-- Card Object Here! -->
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box22">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box23">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box24">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 text-center grid" id="box25">
+          <h1></h1>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container" id="spyboard">
+      <div class="row board-row">
+        <div class="col-sm-2 grid" id="box1">
+          <!-- Card Object Here! -->
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box2">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box3">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box4">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box5">
+          <h1></h1>
+        </div>
+      </div>
+
+      <div class="row board-row">
+        <div class="col-sm-2 grid" id="box6">
+          <!-- Card Object Here! -->
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box7">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box8">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box9">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box10">
+          <h1></h1>
+        </div>
+      </div>
+
+      <div class="row board-row">
+        <div class="col-sm-2 grid" id="box11">
+          <!-- Card Object Here! -->
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box12">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box13">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box14">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box15">
+          <h1></h1>
+        </div>
+      </div>
+
+      <div class="row board-row">
+        <div class="col-sm-2 grid" id="box16">
+          <!-- Card Object Here! -->
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box17">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box18">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box19">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box20">
+          <h1></h1>
+        </div>
+      </div>
+
+      <div class="row board-row">
+        <div class="col-sm-2 grid" id="box21">
+          <!-- Card Object Here! -->
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box22">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box23">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box24">
+          <h1></h1>
+        </div>
+        <div class="col-sm-2 grid" id="box25">
+          <h1></h1>
+        </div>
+      </div>
+
+    </div>
+
+
+  </body>
+  <footer>
+  </footer>
+</html>
